@@ -2,16 +2,31 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SeedName extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
+        foreach ([
+            'Nike',
+            'Adidas',
+            'Puma',
+            'New Balance',
+            'ASICS',
+            'Reebok',
+            'Converse',
+            'Vans',
+            'Under Armour',
+            'Saucony',
+        ] as $brandName) {
+            DB::table('_name')->updateOrInsert(
+                ['name' => $brandName],
+                fn (bool $exists): array => $exists
+                    ? ['updated_at' => now()]
+                    : ['created_at' => now(), 'updated_at' => now()],
+            );
+        }
     }
 }
