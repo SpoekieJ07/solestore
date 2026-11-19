@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             SeedName::class,
             SeedCountry::class,
             SeedDiscription::class,
+            SneakerSeeder::class,
         ]);
 
         // User::factory(10)->create();

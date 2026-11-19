@@ -21,7 +21,7 @@ class SeedName extends Seeder
             'Under Armour',
             'Saucony',
         ] as $brandName) {
-            DB::table('_name')->updateOrInsert(
+            DB::table('brands')->updateOrInsert(
                 ['name' => $brandName],
                 fn (bool $exists): array => $exists
                     ? ['updated_at' => now()]
