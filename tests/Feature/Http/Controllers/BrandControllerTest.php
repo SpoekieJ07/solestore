@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 pest()->use(RefreshDatabase::class);
 
 test('brands index returns all brands', function () {
-    Brand::query()->create(['name' => 'Nike']);
+    Brand::factory()->create(['name' => 'Nike']);
 
     $this->get('/brands')
         ->assertOk()
@@ -14,7 +14,7 @@ test('brands index returns all brands', function () {
 });
 
 test('brand show returns the requested brand', function () {
-    $brand = Brand::query()->create(['name' => 'Nike']);
+    $brand = Brand::factory()->create(['name' => 'Nike']);
 
     $this->get("/brands/{$brand->id}")
         ->assertOk()

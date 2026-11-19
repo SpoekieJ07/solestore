@@ -14,6 +14,8 @@ class Brand extends Model
 
     protected $fillable = [
         'name',
+        'country',
+        'description',
     ];
 
     public function sneakers(): HasMany
